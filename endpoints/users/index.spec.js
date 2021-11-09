@@ -1,4 +1,4 @@
-const usersHandlers = require("./index").default;
+const usersHandlers = require("./index");
 
 describe("Endpoints", () => {
   describe("users", () => {

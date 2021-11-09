@@ -5,7 +5,8 @@
   "author": "daniel",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^27.3.1"
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.14"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -13,6 +14,7 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start:dev": "yarn run nodemon ./server.js"
   }
 }

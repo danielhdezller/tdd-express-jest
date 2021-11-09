@@ -34,4 +34,4 @@ const usersHandlers = ({ axios }) => ({
   },
 });
 
-export default usersHandlers;
+module.exports = usersHandlers;
