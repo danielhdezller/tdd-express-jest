@@ -4,7 +4,7 @@ describe("Endpoints", () => {
   describe("users", () => {
     describe("get", () => {
       it("returns to user json", async () => {
-        //arrange
+        //Arrange
         const axios = {
           get: jest.fn().mockResolvedValue({
             data: 1,
@@ -16,10 +16,10 @@ describe("Endpoints", () => {
           send: jest.fn(),
         };
 
-        //act
+        //Act
         await usersHandlers({ axios }).get({}, res);
 
-        //assert
+        //Assert
         expect(res.status.mock.calls).toEqual([[200]]);
         expect(res.send.mock.calls).toEqual([[1]]);
       });
@@ -27,7 +27,7 @@ describe("Endpoints", () => {
 
     describe("post", () => {
       it("create a resource", async () => {
-        //arrange
+        //Arrange
         const axios = {
           post: jest.fn().mockResolvedValue({
             data: 1,
@@ -43,11 +43,10 @@ describe("Endpoints", () => {
           body: "request body",
         };
 
-        //act
+        //Act
         await usersHandlers({ axios }).post(req, res);
-        console.log("--> res:", res.status.mock); //LOG
 
-        //assert
+        //Assert
         expect(res.status.mock.calls).toEqual([[201]]);
         expect(res.send.mock.calls).toEqual([[1]]);
         expect(axios.post.mock.calls).toEqual([
@@ -58,7 +57,7 @@ describe("Endpoints", () => {
 
     describe("put", () => {
       it("update a resource", async () => {
-        //arrange
+        //Arrange
         const axios = {
           put: jest.fn().mockResolvedValue({
             data: 1,
@@ -75,10 +74,10 @@ describe("Endpoints", () => {
           params: { id: 2 },
         };
 
-        //act
+        //Act
         await usersHandlers({ axios }).put(req, res);
 
-        //assert
+        //Assert
         expect(axios.put.mock.calls).toEqual([
           ["https://jsonplaceholder.typicode.com/users/2", "request body"],
         ]);
@@ -88,7 +87,7 @@ describe("Endpoints", () => {
 
     describe("delete", () => {
       it("delete a resource to", async () => {
-        //arrange
+        //Arrange
         const axios = {
           delete: jest.fn(),
         };
@@ -102,10 +101,10 @@ describe("Endpoints", () => {
           params: { id: 5 },
         };
 
-        //act
+        //Act
         await usersHandlers({ axios }).delete(req, res);
 
-        //assert
+        //Assert
         expect(axios.delete.mock.calls).toEqual([
           ["https://jsonplaceholder.typicode.com/users/5"],
         ]);

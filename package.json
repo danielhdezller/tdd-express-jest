@@ -15,6 +15,7 @@
   },
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watchAll",
     "start:dev": "yarn run nodemon ./server.js"
   }
 }
