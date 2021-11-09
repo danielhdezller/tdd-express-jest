@@ -1,0 +1,18 @@
+{
+  "name": "tdd-express-jest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "daniel",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
