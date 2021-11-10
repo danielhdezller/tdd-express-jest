@@ -2,7 +2,7 @@ const postHandlers = require("./index");
 
 describe("Endpoints", () => {
   describe("posts", () => {
-    it.skip("should create", async () => {
+    it("should create", async () => {
       //Arrange
       const mockUsers = [
         {
@@ -25,13 +25,13 @@ describe("Endpoints", () => {
       };
 
       const res = {
-        status: jest.fn(),
-        send: jest.fn,
+        status: jest.fn().mockReturnThis(),
+        send: jest.fn(),
       };
 
       const axios = {
         get: jest.fn().mockResolvedValue({ data: mockUsers }),
-        post: jest.fn().mockResolvedValue({ data: {id: 1000}}),
+        post: jest.fn().mockResolvedValue({ data: { id: 1000 } }),
       };
 
       //Act
@@ -39,6 +39,8 @@ describe("Endpoints", () => {
 
       //Assert
       expect(res.status.mock.calls).toEqual([[201]]);
+      expect(res.send.mock.calls).toEqual([[{ id: 1000 }]]);
+      expect(["https://jsonplaceholder.typicode.com/posts", post]);
     });
   });
 });
