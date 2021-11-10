@@ -7,15 +7,21 @@ const postHandler = ({ axios }) => ({
   },
 
   post: async (req, res) => {
-    await axios.get("https://jsonplaceholder.typicode.com/users");
-
-    const { body } = req;
-    const { data } = await axios.post(
-      "https://jsonplaceholder.typicode.com/posts",
-      body
+    const { data: users } = await axios.get(
+      "https://jsonplaceholder.typicode.com/users"
     );
+    const found = users.find((x) => x.id === req.body.userId);
 
-    res.status(201).send(data);
+    if (found) {
+      const { body } = req;
+      const { data } = await axios.post(
+        "https://jsonplaceholder.typicode.com/posts",
+        body
+      );
+
+      return res.status(201).send(data);
+    }
+    return res.sendStatus(500);
   },
 });
 
