@@ -21,7 +21,7 @@ const postHandler = ({ axios }) => ({
 
       return res.status(201).send(data);
     }
-    return res.sendStatus(500);
+    return res.sendStatus(400);
   },
 });
 
